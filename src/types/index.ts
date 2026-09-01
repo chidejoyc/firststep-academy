@@ -49,7 +49,6 @@ export interface Lesson {
   duration: number;
   resources: Resource[];
   quiz?: Quiz;
-  assignment?: Assignment;
 }
 
 export interface Resource {
@@ -59,13 +58,11 @@ export interface Resource {
   url: string;
 }
 
-// Quiz Types
 export interface Quiz {
   id: string;
   lessonId: string;
   questions: Question[];
   passingScore: number;
-  timeLimit?: number;
 }
 
 export interface Question {
@@ -77,17 +74,7 @@ export interface Question {
   explanation: string;
 }
 
-// Assignment Types
-export interface Assignment {
-  id: string;
-  lessonId: string;
-  title: string;
-  description: string;
-  dueDate?: Date;
-  rubric?: string;
-}
-
-// Article/Blog Types
+// Article Types
 export interface Article {
   id: string;
   title: string;
@@ -102,12 +89,11 @@ export interface Article {
   publishedAt: Date;
   views: number;
   likes: number;
-  relatedArticles: string[];
   createdAt: Date;
   updatedAt: Date;
 }
 
-// AI Tools Directory
+// AI Tools
 export interface AITool {
   id: string;
   name: string;
@@ -117,47 +103,18 @@ export interface AITool {
   image: string;
   features: string[];
   pricing: string;
-  pricingTiers?: PricingTier[];
   rating: number;
   beginnerScore: number;
   affiliateLink?: string;
   officialWebsite: string;
   pros: string[];
   cons: string[];
-  alternatives: string[];
-  tutorial?: string;
   createdAt: Date;
   updatedAt: Date;
 }
 
-export interface PricingTier {
-  name: string;
-  price: number;
-  features: string[];
-  currency: string;
-}
-
-// Product Review Types
-export interface ProductReview {
-  id: string;
-  title: string;
-  slug: string;
-  product: string;
-  image: string;
-  overview: string;
-  pros: string[];
-  cons: string[];
-  rating: number;
-  pricing: string;
-  author: string;
-  affiliateButton?: string;
-  relatedProducts: string[];
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-// Resource Library Types
-export interface Resource {
+// Resource Library
+export interface LibraryResource {
   id: string;
   title: string;
   description: string;
@@ -171,7 +128,7 @@ export interface Resource {
   updatedAt: Date;
 }
 
-// Learning Roadmap Types
+// Learning Roadmap
 export interface LearningRoadmap {
   id: string;
   title: string;
@@ -194,7 +151,7 @@ export interface RoadmapLevel {
   order: number;
 }
 
-// Gamification Types
+// Gamification
 export interface Badge {
   id: string;
   name: string;
@@ -203,27 +160,17 @@ export interface Badge {
   criteria: string;
 }
 
-export interface Achievement {
-  id: string;
-  userId: string;
-  type: string;
-  title: string;
-  description: string;
-  earnedAt: Date;
-}
-
 export interface Certification {
   id: string;
   userId: string;
   courseId: string;
   title: string;
   issuedAt: Date;
-  expiresAt?: Date;
   certificateUrl: string;
   verificationCode: string;
 }
 
-// Community Types
+// Community
 export interface ForumPost {
   id: string;
   title: string;
@@ -249,68 +196,11 @@ export interface ForumReply {
   updatedAt: Date;
 }
 
-// Newsletter Types
+// Newsletter
 export interface NewsletterSubscriber {
   id: string;
   email: string;
   name: string;
   subscribed: boolean;
   subscribedAt: Date;
-  unsubscribedAt?: Date;
-}
-
-export interface NewsletterIssue {
-  id: string;
-  subject: string;
-  content: string;
-  sentAt: Date;
-  recipientCount: number;
-  openRate: number;
-  clickRate: number;
-}
-
-// Affiliate Types
-export interface AffiliateLink {
-  id: string;
-  productId: string;
-  url: string;
-  clicks: number;
-  conversions: number;
-  revenue: number;
-  createdAt: Date;
-}
-
-// Analytics Types
-export interface PageView {
-  id: string;
-  userId?: string;
-  page: string;
-  referrer?: string;
-  timestamp: Date;
-}
-
-export interface UserProgress {
-  id: string;
-  userId: string;
-  courseId: string;
-  lessonsCompleted: number;
-  totalLessons: number;
-  quizScores: QuizScore[];
-  assignments: AssignmentSubmission[];
-  completedAt?: Date;
-  progress: number;
-}
-
-export interface QuizScore {
-  quizId: string;
-  score: number;
-  attemptDate: Date;
-  timeSpent: number;
-}
-
-export interface AssignmentSubmission {
-  assignmentId: string;
-  submittedAt: Date;
-  grade?: number;
-  feedback?: string;
 }

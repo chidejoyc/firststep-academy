@@ -42,14 +42,8 @@ export const forumPostSchema = z.object({
   category: z.string().min(1, 'Category is required'),
 });
 
-// Forum reply schema
-export const forumReplySchema = z.object({
-  content: z.string().min(5, 'Reply must be at least 5 characters'),
-});
-
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type CourseInput = z.infer<typeof courseSchema>;
 export type ArticleInput = z.infer<typeof articleSchema>;
 export type NewsletterInput = z.infer<typeof newsletterSchema>;
 export type ForumPostInput = z.infer<typeof forumPostSchema>;
-export type ForumReplyInput = z.infer<typeof forumReplySchema>;
